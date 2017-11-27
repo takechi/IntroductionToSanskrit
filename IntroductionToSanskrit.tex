@@ -37,7 +37,8 @@
 % enumerate paragraphs
 \newcounter{paragraphCounter}
 \setcounter{paragraphCounter}{0}
-\newcommand{\printParagraphCounter}[0]{\textbf{\arabic{paragraphCounter}}.\hspace{1\zw}}
+\newcommand{\formatParagraphCounter}[1]{\textbf{#1}}
+\newcommand{\printParagraphCounter}[0]{\formatParagraphCounter{\arabic{paragraphCounter}}.\hspace{1\zw}}
 \newcommand{\numberParagraph}[1][0]{\refstepcounter{paragraphCounter}\printParagraphCounter}
 
 \newcommand{\anunasikam}{{\dnf ँ}\hspace{-1em}\colorbox{white}{m}\hspace{-3pt}}% TODO: modify
