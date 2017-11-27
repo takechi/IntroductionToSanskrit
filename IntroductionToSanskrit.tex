@@ -1,0 +1,78 @@
+\documentclass[12pt]{ltjsbook}
+\setlength{\textwidth}{\fullwidth}
+\setlength{\evensidemargin}{\oddsidemargin}
+
+\usepackage{fontspec}
+\usepackage[no-math]{luatexja-fontspec}
+
+% font for Japanese
+% https://github.com/adobe-fonts/source-han-serif
+\setmainjfont{SourceHanSerifJP}
+\setsansjfont{SourceHanSansJP}
+\ltjsetparameter{jacharrange={-2}}
+
+% font for Devanagari
+% https://github.com/google/fonts/tree/master/ofl/lohitdevanagari
+% \newfontfamily\dnf[Script=Devanagari]{Lohit Devanagari}
+% https://www.oah.in/Sanskrit/itranslator2003.htm
+%\newfontfamily\dnf[Script=Devanagari]{Sanskrit2003}
+% http://svayambhava.blogspot.jp/p/siddhanta-devanagariunicode-open-type.html
+\newfontfamily\dnf[Script=Devanagari]{siddhanta}
+
+% font for Siddham
+% https://github.com/MihailJP/Muktamsiddham
+% \newfontfamily\siddham[Script=Devanagari]{Muktamsiddham}
+% \newfontfamily\siddhamr{Muktamsiddham}
+
+\usepackage{enumitem}
+\usepackage{pxrubrica}
+\usepackage{calc}
+\usepackage{multirow, bigdelim}
+\usepackage{amsmath}
+\usepackage{graphicx, color}
+
+\usepackage{endnotes}
+\renewcommand{\theendnote}{[\#\arabic{endnote}]}
+
+% enumerate paragraphs
+\newcounter{paragraphCounter}
+\setcounter{paragraphCounter}{0}
+\newcommand{\printParagraphCounter}[0]{\textbf{\arabic{paragraphCounter}}.\hspace{1\zw}}
+\newcommand{\numberParagraph}[1][0]{\refstepcounter{paragraphCounter}\printParagraphCounter}
+
+\newcommand{\anunasikam}{{\dnf ँ}\hspace{-1em}\colorbox{white}{m}\hspace{-3pt}}% TODO: modify
+
+% 【註】
+\newcommand{\nt}[1]{%
+\noindent\hrulefill\linebreak
+【註】\hspace{1\zw} #1 \par \vspace{-1\zw}
+\noindent\hrulefill}
+
+
+% 例：
+\newcommand{\ex}[1]{%
+\begin{description}[font=\normalfont, style=multiline, labelindent=10mm, leftmargin=20mm]
+\item[例：] #1
+\end{description}}
+
+\title{入門サンスクリット}
+\author{泉芳璟}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\input{preface.tex}
+\input{general.tex}
+
+\part{文法}
+\input{pencraft.tex}
+\input{pronunciation.tex}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% TeX-engine: luatex
+%%% End:
