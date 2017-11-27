@@ -1,0 +1,19 @@
+;;; for romanized Sanskrit
+(global-set-key (kbd "C-; a") (lambda () (interactive )(insert "ā")))
+(global-set-key (kbd "C-; i") (lambda () (interactive )(insert "ī")))
+(global-set-key (kbd "C-; u") (lambda () (interactive )(insert "ū")))
+
+(global-set-key (kbd "C-; r d") (lambda () (interactive )(insert "ṛ")))
+(global-set-key (kbd "C-; r b") (lambda () (interactive )(insert "ṝ")))
+(global-set-key (kbd "C-; l d") (lambda () (interactive )(insert "ḷ")))
+(global-set-key (kbd "C-; l b") (lambda () (interactive )(insert "ḹ")))
+
+(global-set-key (kbd "C-; m") (lambda () (interactive )(insert "ṃ")))
+(global-set-key (kbd "C-; h") (lambda () (interactive )(insert "ḥ")))
+(global-set-key (kbd "C-; n u") (lambda () (interactive )(insert "ṅ")))
+(global-set-key (kbd "C-; n l") (lambda () (interactive )(insert "ṇ")))
+(global-set-key (kbd "C-; n c") (lambda () (interactive )(insert "ñ")))
+(global-set-key (kbd "C-; t") (lambda () (interactive )(insert "ṭ")))
+(global-set-key (kbd "C-; d") (lambda () (interactive )(insert "ḍ")))
+(global-set-key (kbd "C-; s a") (lambda () (interactive )(insert "ś")))
+(global-set-key (kbd "C-; s d") (lambda () (interactive )(insert "ṣ")))
