@@ -30,6 +30,7 @@
 \usepackage{multirow, bigdelim}
 \usepackage{amsmath}
 \usepackage{graphicx, color}
+\usepackage{longtable}
 
 \usepackage{endnotes}
 \renewcommand{\theendnote}{[\#\arabic{endnote}]}
@@ -53,10 +54,16 @@
 
 
 % 例：
-\newcommand{\ex}[1]{%
+\newcommand{\eg}[1]{%
 \begin{description}[font=\normalfont, style=multiline, labelwidth=\widthof{されど}, align=right, labelindent=10mm, leftmargin=20mm]
 \item[例：] #1
 \end{description}}
+
+% 演習
+\newcommand{\ex}[1]{%
+\begin{center}
+$\underline{\overline{\text{\textbf{演習#1}}}}$
+\end{center}}
 
 \title{入門サンスクリット}
 \author{泉芳璟}
