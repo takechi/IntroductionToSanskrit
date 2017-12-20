@@ -12,7 +12,7 @@ def main():
 
     selectorAndCharList = (("󠄀", "海練連"),
                            ("󠄁", "交更硬使暗遣運遠音過近誤斜弱終習勝消情聖請"
-                                + "前全造速退隊達追通半婦平文飢便遺採伴分避"),
+                                + "前全造速退隊達追通半婦平文飢便遺採伴分避要"),
                            ("󠄂", "望"), )
 
     for (selector, charList) in selectorAndCharList:
