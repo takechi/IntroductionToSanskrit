@@ -15,7 +15,7 @@
 % https://github.com/google/fonts/tree/master/ofl/lohitdevanagari
 % \newfontfamily\dnf[Script=Devanagari]{Lohit Devanagari}
 % https://www.oah.in/Sanskrit/itranslator2003.htm
-%\newfontfamily\dnf[Script=Devanagari]{Sanskrit2003}
+% \newfontfamily\dnf[Script=Devanagari]{Sanskrit2003}
 % http://svayambhava.blogspot.jp/p/siddhanta-devanagariunicode-open-type.html
 \newfontfamily\dnf[Script=Devanagari]{siddhanta}
 
@@ -25,16 +25,21 @@
 % \newfontfamily\siddhamr{Muktamsiddham}
 
 % for variant glyph
-\usepackage{luatexja-otf}
+%\usepackage{luatexja-otf}
 
+% IPAex, Hanazono font for some variantions
+%\newjfontfamily\IPAex{IPAexMincho}
+\newjfontfamily\HanazonoA{HanaMinA}
 
 \usepackage{enumitem}
 \usepackage{pxrubrica}
 \usepackage{calc}
 \usepackage{multirow, bigdelim}
-\usepackage{amsmath}
-\usepackage{graphicx, color}
+\usepackage{umoline}
+%\usepackage{graphicx, color}
 \usepackage{longtable}
+
+%\usepackage{type1cm}
 
 \usepackage{endnotes}
 \renewcommand{\theendnote}{[\#\arabic{endnote}]}
@@ -46,7 +51,7 @@
 \newcommand{\printParagraphCounter}[0]{\formatParagraphCounter{\arabic{paragraphCounter}}.\hspace{1\zw}}
 \newcommand{\numberParagraph}[1][0]{\refstepcounter{paragraphCounter}\printParagraphCounter}
 
-\newcommand{\anunasikam}{{\dnf ँ}\hspace{-1em}\colorbox{white}{m}\hspace{-3pt}}% TODO: modify
+\newcommand{\anunasikam}{\hspace{0.5em}{\dnf ̐}\hspace{-0.75em}m}
 
 \newcommand{\cellAlign}[2]{\multicolumn{1}{#1}{#2}}
 
@@ -66,7 +71,7 @@
 % 演習
 \newcommand{\ex}[1]{%
 \begin{center}
-$\underline{\overline{\text{\textbf{演習#1}}}}$
+\Underline{{\Overline{{\textbf{演習#1}}}}}
 \end{center}}
 
 \title{入門サンスクリット}
