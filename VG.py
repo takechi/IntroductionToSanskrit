@@ -8,48 +8,16 @@ def main():
 
     suffix = "-vg"
 
-    charToCIDDict = {
-        "海": 13327,
-        "練": 13399,
-        "交": 13439,
-        "更": 13441,
-        "硬": 13443,
-        "使": 13450,
-        "暗": 13638,
-        "遺": 13642,
-        "運": 13649,
-        "遠": 13658,
-        "音": 13664,
-        "過": 13669,
-        "近": 13730,
-        "誤": 13762,
-        "斜": 13805,
-        "弱": 13811,
-        "終": 13816,
-        "習": 13817,
-        "勝": 13829,
-        "消": 13836,
-        "情": 13842,
-        "聖": 13869,
-        "請": 13872,
-        "前": 13889,
-        "全": 13890,
-        "造": 13897,
-        "速": 13899,
-        "退": 13905,
-        "隊": 13907,
-        "達": 13912,
-        "追": 13938,
-        "通": 13939,
-        "半": 13986,
-        "婦": 14002,
-        "平": 14011,
-        "望": 14036,
-        "連": 14097,
-        "文": 20131,
-    }
+    replaceDict = {}
 
-    replaceDict = {k: "\\CID{" + str(v) + "}" for k, v in charToCIDDict.items()}
+    selectorAndCharList = (("󠄀", "海練連"),
+                           ("󠄁", "交更硬使暗遣運遠音過近誤斜弱終習勝消情聖請"
+                                + "前全造速退隊達追通半婦平文飢"),
+                           ("󠄂", "望"), )
+
+    for (selector, charList) in selectorAndCharList:
+        for c in charList:
+            replaceDict[c] = c + selector
 
     inputTexFilenames = [args[i] for i in range(1, len(args))]
     outputTexFilenames = [fn.replace(".tex", suffix + ".tex") for fn in inputTexFilenames]

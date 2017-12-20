@@ -221,3 +221,6 @@ TSWLatexianTemp*
 
 ## pdf
 *.pdf
+
+## variation glyph
+*-vg.tex
