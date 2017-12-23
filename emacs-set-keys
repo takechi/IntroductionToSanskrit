@@ -10,7 +10,7 @@
 
 (global-set-key (kbd "C-; m") (lambda () (interactive )(insert "ṃ")))
 (global-set-key (kbd "C-; h") (lambda () (interactive )(insert "ḥ")))
-(global-set-key (kbd "C-; u") (lambda () (interactive )(insert "ṅ")))
+(global-set-key (kbd "C-; j") (lambda () (interactive )(insert "ṅ")))
 (global-set-key (kbd "C-; n") (lambda () (interactive )(insert "ṇ")))
 (global-set-key (kbd "C-; c") (lambda () (interactive )(insert "ñ")))
 (global-set-key (kbd "C-; t") (lambda () (interactive )(insert "ṭ")))

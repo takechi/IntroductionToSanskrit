@@ -10,11 +10,11 @@ def main():
 
     replaceDict = {}
 
-    selectorAndCharList = (("󠄀", "海練連咬飲"),
+    selectorAndCharList = (("󠄀", "海練連咬飲蓮"),
                            ("󠄁", "交更硬使暗遣運遠音過近誤斜弱終習勝消情聖請"
                                 + "前全造速退隊達追通半婦平文飢便遺採伴分避要"
-                                + "覆"),
-                           ("󠄂", "望"), )
+                                + "覆尊磨削槪選飾灰空認食"),
+                           ("󠄂", "望慧響"), )
 
     for (selector, charList) in selectorAndCharList:
         for c in charList:
