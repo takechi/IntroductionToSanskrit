@@ -16,4 +16,5 @@
 (global-set-key (kbd "C-; t") (lambda () (interactive )(insert "ṭ")))
 (global-set-key (kbd "C-; d") (lambda () (interactive )(insert "ḍ")))
 (global-set-key (kbd "C-; s") (lambda () (interactive )(insert "ś")))
+(global-set-key (kbd "C-; S") (lambda () (interactive )(insert "Ś")))
 (global-set-key (kbd "C-; f") (lambda () (interactive )(insert "ṣ")))
