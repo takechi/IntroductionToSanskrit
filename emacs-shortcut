@@ -1,0 +1,60 @@
+;;; for romanized Sanskrit
+(global-set-key (kbd "C-; a") (lambda () (interactive )(insert "ā")))
+(global-set-key (kbd "C-; i") (lambda () (interactive )(insert "ī")))
+(global-set-key (kbd "C-; u") (lambda () (interactive )(insert "ū")))
+
+(global-set-key (kbd "C-; r") (lambda () (interactive )(insert "ṛ")))
+(global-set-key (kbd "C-; e") (lambda () (interactive )(insert "ṝ")))
+(global-set-key (kbd "C-; l") (lambda () (interactive )(insert "ḷ")))
+(global-set-key (kbd "C-; b") (lambda () (interactive )(insert "ḹ")))
+
+(global-set-key (kbd "C-; m") (lambda () (interactive )(insert "ṃ")))
+(global-set-key (kbd "C-; h") (lambda () (interactive )(insert "ḥ")))
+(global-set-key (kbd "C-; j") (lambda () (interactive )(insert "ṅ")))
+(global-set-key (kbd "C-; n") (lambda () (interactive )(insert "ṇ")))
+(global-set-key (kbd "C-; c") (lambda () (interactive )(insert "ñ")))
+(global-set-key (kbd "C-; t") (lambda () (interactive )(insert "ṭ")))
+(global-set-key (kbd "C-; d") (lambda () (interactive )(insert "ḍ")))
+(global-set-key (kbd "C-; s") (lambda () (interactive )(insert "ś")))
+(global-set-key (kbd "C-; S") (lambda () (interactive )(insert "Ś")))
+(global-set-key (kbd "C-; f") (lambda () (interactive )(insert "ṣ")))
+
+
+(defun swap-preceding-char (src dst)
+  (cond ((re-search-backward src (- (point) 1)  t 1)
+         (buffer-substring (match-beginning 0) (match-end 0))
+         (replace-match dst)
+         t)
+        (t
+         nil)))
+
+(defun swap-preceding-chars (src dst)
+  (when (and (car src) (car dst) (not (swap-preceding-char (car src) (car dst))))
+    (swap-preceding-chars (cdr src) (cdr dst))))
+
+(defun rotate-preceding-list (input)
+  (swap-preceding-chars (car input) (append (cdr (car input)) (list (car (car input)))))
+  (if input
+      (rotate-preceding-list (cdr input))))
+
+(defun toggle-variation ()
+  (interactive)
+  (rotate-preceding-list '(("a" "ā") ("i" "ī") ("u" "ū")
+                           ("r" "ṛ" "ṝ") ("l" "ḷ" "ḹ")
+                           ("m" "ṃ") ("h" "ḥ") ("n" "ṇ" "ñ" "ṅ")
+                           ("t" "ṭ") ("d" "ḍ") ("s" "ś" "ṣ")
+                           ("っ" "つ")
+                           ("い" "ひ" "ゐ") ("う" "ふ") ("え" "へ")
+                           ("強" "强") ("告" "吿") ("者" "者") ("満" "滿") ("虚" "虛") ("礼" "禮")
+                           ("状" "狀") ("暑" "暑") ("乱" "亂") ("価" "價") ("体" "體") ("点" "點")
+                           ("猟" "獵") ("発" "發") ("国" "國") ("断" "斷") ("経" "經") ("教" "敎")
+                           ("変" "變") ("帰" "歸") ("称" "稱") ("号" "號") ("当" "當") ("会" "會")
+                           ("声" "聲") ("煮" "煮") ("著" "著") ("尚" "尙") ("覚" "覺") ("条" "條")
+                           ("即" "卽") ("与" "與") ("様" "樣") ("為" "爲") ("総" "總") ("数" "數")
+                           ("参" "參") ("随" "隨") ("従" "從") ("両" "兩") ("単" "單") ("仏" "佛")
+                           ("実" "實") ("将" "將") ("来" "來") ("叙" "敍") ("戦" "戰") ("没" "沒")
+                           ("陥" "陷") ("焼" "燒") ("関" "關") ("収" "收") ("児" "兒") ("誉" "譽")
+                           ("讃" "讚") ("麦" "麥") ("神" "神") ("涙" "淚") ("気" "氣") ("余" "餘")
+                           ("軽" "輕") ("視" "視") ("属" "屬") ("読" "讀") ("続" "續"))))
+
+(global-set-key (kbd "C-; C-;") (lambda () (interactive ) (toggle-variation)))
