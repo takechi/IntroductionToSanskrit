@@ -21,21 +21,28 @@
 
 
 (defun swap-preceding-char (src dst)
-  (cond ((re-search-backward src (- (point) 1)  t 1)
-         (buffer-substring (match-beginning 0) (match-end 0))
-         (replace-match dst)
-         t)
-        (t
-         nil)))
+  (when (re-search-backward src (- (point) 1)  t 1)
+    (buffer-substring (match-beginning 0) (match-end 0))
+    (replace-match dst)
+    t))
 
 (defun swap-preceding-chars (src dst)
-  (when (and (car src) (car dst) (not (swap-preceding-char (car src) (car dst))))
-    (swap-preceding-chars (cdr src) (cdr dst))))
+  (setq s (car src))
+  (setq d (car dst))
+  (when (and s d)
+    (if (swap-preceding-char s d)
+        t
+      (swap-preceding-chars (cdr src) (cdr dst)))))
+
+(defun rotate-list (input)
+  (append (cdr input) (list (car input))))
 
 (defun rotate-preceding-list (input)
-  (swap-preceding-chars (car input) (append (cdr (car input)) (list (car (car input)))))
-  (if input
-      (rotate-preceding-list (cdr input))))
+  (setq src (car input))
+  (if src
+      (if (swap-preceding-chars src (rotate-list src))
+          t
+        (rotate-preceding-list (cdr input)))))
 
 (defun toggle-variation ()
   (interactive)
@@ -44,7 +51,7 @@
                            ("m" "ṃ") ("h" "ḥ") ("n" "ṇ" "ñ" "ṅ")
                            ("t" "ṭ") ("d" "ḍ") ("s" "ś" "ṣ")
                            ("っ" "つ")
-                           ("い" "ひ" "ゐ") ("う" "ふ") ("え" "へ")
+                           ("わ" "は") ("い" "ひ" "ゐ") ("う" "ふ") ("え" "へ")
                            ("強" "强") ("告" "吿") ("者" "者") ("満" "滿") ("虚" "虛") ("礼" "禮")
                            ("状" "狀") ("暑" "暑") ("乱" "亂") ("価" "價") ("体" "體") ("点" "點")
                            ("猟" "獵") ("発" "發") ("国" "國") ("断" "斷") ("経" "經") ("教" "敎")
@@ -55,6 +62,18 @@
                            ("実" "實") ("将" "將") ("来" "來") ("叙" "敍") ("戦" "戰") ("没" "沒")
                            ("陥" "陷") ("焼" "燒") ("関" "關") ("収" "收") ("児" "兒") ("誉" "譽")
                            ("讃" "讚") ("麦" "麥") ("神" "神") ("涙" "淚") ("気" "氣") ("余" "餘")
-                           ("軽" "輕") ("視" "視") ("属" "屬") ("読" "讀") ("続" "續"))))
+                           ("軽" "輕") ("視" "視") ("属" "屬") ("読" "讀") ("続" "續") ("学" "學")
+                           ("楽" "樂") ("福" "福") ("祈" "祈") ("真" "眞") ("暁" "曉") ("触" "觸")
+                           ("争" "爭") ("頼" "賴") ("欠" "缺") ("独" "獨") ("辞" "辭") ("拡" "擴")
+                           ("厳" "嚴") ("対" "對") ("層" "層") ("聴" "聽") ("歯" "齒") ("抜" "拔")
+                           ("帯" "帶") ("釈" "釋") ("訳" "譯") ("台" "臺") ("継" "繼") ("証" "證")
+                           ("拠" "據") ("宝" "寶") ("概" "槪") ("剣" "劍") ("恵" "惠") ("売" "賣")
+                           ("産" "產") ("祖" "祖") ("歓" "歡") ("拝" "拜") ("権" "權") ("悪" "惡")
+                           ("処" "處") ("堕" "墮") ("欲" "慾") ("観" "觀") ("区" "區") ("隠" "隱")
+                           ("贈" "贈") ("悦" "悅") ("説" "說") ("齢" "齡") ("択" "擇") ("屡" "屢")
+                           ("徳" "德") ("挙" "擧") ("営" "營") ("曽" "曾") ("滞" "滯") ("応" "應")
+                           ("栄" "榮") ("練" "練") ("増" "增") ("専" "專") ("繋" "繫") ("乗" "乘")
+                           ("粋" "粹") ("獣" "獸") ("免" "免") ("勧" "勸") ("験" "驗") ("内" "內")
+                           ("双" "雙") ("寿" "壽") ("圧" "壓") ("仮" "假") )))
 
 (global-set-key (kbd "C-; C-;") (lambda () (interactive ) (toggle-variation)))
