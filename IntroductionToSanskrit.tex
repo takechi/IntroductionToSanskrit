@@ -1,6 +1,8 @@
-\documentclass[12pt]{ltjsbook}
-\setlength{\textwidth}{\fullwidth}
+\documentclass[12pt,vartwoside]{ltjsbook}
+%\setlength{\textwidth}{0.68\fullwidth}
 \setlength{\evensidemargin}{\oddsidemargin}
+
+\setlength{\marginparwidth}{0.25\fullwidth}
 
 \usepackage[pdfencoding=auto]{hyperref}
 \usepackage{fontspec}
@@ -38,7 +40,7 @@
 %\usepackage{type1cm}
 
 \usepackage{endnotes}
-\renewcommand{\theendnote}{[\#\arabic{endnote}]}
+\renewcommand{\theendnote}{\#\arabic{endnote}}
 
 % enumerate paragraphs
 \newcounter{paragraphCounter}
@@ -51,6 +53,8 @@
 \newcommand{\anunasikamd}{\hspace{0.75em}{\dnf ̐}\hspace{-0.75em}ṃ}
 
 \newcommand{\cellAlign}[2]{\multicolumn{1}{#1}{#2}}
+
+\newcommand{\rt}[0]{$\sqrt{}$}
 
 % 【註】
 \newcommand{\nt}[1]{%
@@ -70,6 +74,11 @@
 \begin{center}
 \Underline{{\Overline{{\textbf{演習#1}}}}}
 \end{center}\addcontentsline{toc}{subsection}{演習 #1}}
+
+% 傍注
+\newcommand{\mymp}[1]{%
+%  \marginpar{\footnotesize{#1}}
+}
 
 \title{入門サンスクリット}
 \author{泉 芳璟 著}
