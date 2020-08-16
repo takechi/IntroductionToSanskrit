@@ -10,7 +10,7 @@ http://dl.ndl.go.jp/info:ndljp/pid/1126730
 - TeX が打ちたい
 
 ## コンパイル
- TeX Live 2017 / LuaLaTeX
+ TeX Live 2020 / LuaLaTeX
 
  [SourceHanSerif(源ノ明朝)](https://github.com/adobe-fonts/source-han-serif)，
  [花園明朝](http://fonts.jp/hanazono/)
@@ -19,6 +19,7 @@ http://dl.ndl.go.jp/info:ndljp/pid/1126730
  
 ## 入力方針 
 - 基本的に底本通り入力する（旧字旧仮名）。
+- 異体字セレクタと文字コード両方を持つ異体字については異体字セレクタで入力する。
 - 誤植などについては注釈で適宜対応する。
 - 読めなかった漢字にはルビを振る。
 
