@@ -8,6 +8,8 @@
 \usepackage{fontspec}
 \usepackage[no-math]{luatexja-fontspec}
 
+\usepackage{scrextend}
+
 % font for Japanese
 % https://github.com/adobe-fonts/source-han-serif
 \setmainjfont{SourceHanSerifJP}
@@ -34,7 +36,7 @@
 \usepackage{calc}
 \usepackage{multirow, bigdelim}
 \usepackage{umoline}
-%\usepackage{graphicx, color}
+\usepackage{graphicx, color}
 \usepackage{longtable}
 
 %\usepackage{type1cm}
@@ -51,6 +53,8 @@
 
 \newcommand{\anunasikam}{\hspace{0.75em}{\dnf ̐}\hspace{-0.75em}m}
 \newcommand{\anunasikamd}{\hspace{0.75em}{\dnf ̐}\hspace{-0.75em}ṃ}
+\newcommand{\da}{{\dnf ।}{}}
+\newcommand{\dd}{{\dnf ॥}{}}
 
 \newcommand{\cellAlign}[2]{\multicolumn{1}{#1}{#2}}
 
@@ -61,7 +65,6 @@
 \noindent\hrulefill\linebreak
 【註】\hspace{1\zw} #1 \par \vspace{-1\zw}
 \noindent\hrulefill}
-
 
 % 例：
 \newcommand{\eg}[1]{%
@@ -74,6 +77,19 @@
 \begin{center}
 \Underline{{\Overline{{\textbf{演習#1}}}}}
 \end{center}\addcontentsline{toc}{subsection}{演習 #1}}
+
+
+% 文抄タイトル
+\newcommand\texttitle[1]{%
+\begin{center}{\Large #1}\end{center}}
+
+% シンボルなし脚注
+\newcommand\wosfnt[1]{%
+\begingroup%
+\renewcommand\thefootnote{}\footnote{#1}%
+\addtocounter{footnote}{-1}%
+\endgroup}
+
 
 % 傍注
 \newcommand{\mymp}[1]{%
@@ -96,6 +112,14 @@
 \input{pronunciation.tex}
 \input{inflection.tex}
 \input{writing.tex}
+
+\part{文抄}
+\input{Nala.tex}
+\input{BrahminFantasy.tex}
+\input{AnandaTempted.tex}
+\input{HeartSutra.tex}
+\input{SukhavativyuhaSutra.tex}
+
 \end{document}
 
 %%% Local Variables:
